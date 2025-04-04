@@ -18,7 +18,7 @@ import { FaFilter } from 'react-icons/fa6';
 const Shop = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [priceRange, setPriceRange] = useState([0, 500]);
   const [openFilter, setOpenFilter] = useState(false)
 
   // console.log("checking" , products);
@@ -38,7 +38,7 @@ const Shop = () => {
 
 
   return (
-    <div className=" max-w-6xl mx-auto flex flex-col lg:gap-6 my-7 lg:mt-28 mt-24 ">
+    <div className=" max-w-6xl mx-auto flex flex-col lg:gap-6 my-7 lg:mt-28 mt-24 h-max">
       {/* Filter Section */}
       <div className="col-span-1 p-4 bg-gray-100 h-max rounded-lg fixed w-[280px] mb-10 hidden md:block">
         <h2 className="text-lg font-semibold mb-4">Filters</h2>
@@ -59,7 +59,7 @@ const Shop = () => {
           <option value="Vegetables">Vegetables</option>
           <option value="Meat">Meat</option>
         </select>
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label>Price Range: ₹{priceRange[0]} - ₹{priceRange[1]}</label>
           {/* <Slider
             min={0}
@@ -68,9 +68,15 @@ const Shop = () => {
             value={priceRange}
             onChange={(value) => setPriceRange(value)}
           /> */}
-          <input type="range" name="" id="" />
+          <input type="range"
+            min="0"
+            max="500"
+            value={priceRange[1]} 
+            onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])} 
+            // className='text-green-600'
+            />
         </div>
-        <button onClick={() => { setSearch(''); setCategory(''); setPriceRange([0, 1000]); }} className='bg-red-500 px-3 py-1 rounded-md text-white cursor-pointer'>Reset Filters</button>
+        <button onClick={() => { setSearch(''); setCategory(''); setPriceRange([0, 500]); }} className='bg-red-500 px-3 py-1 rounded-md text-white cursor-pointer'>Reset Filters</button>
       </div>
 
       <div className={`md:hidden bg-gray-100 flex justify-between items-center mx-4 px-4 py-3 ${openFilter ? "rounded-t-md" : "rounded-md"}`}>
@@ -78,7 +84,7 @@ const Shop = () => {
         <FaFilter onClick={() => toggleFilter()} className='text-gray-800 cursor-pointer' />
       </div>
       {
-        openFilter ? <div className='bg-gray-100 p-4 mx-4 rounded-b-md md:hidden'>
+        openFilter ? <div className='bg-gray-100 p-4 mx-4 rounded-b-md md:hidden '>
           <input
             placeholder="Search..."
             value={search}
@@ -96,7 +102,18 @@ const Shop = () => {
             <option value="Vegetables">Vegetables</option>
             <option value="Meat">Meat</option>
           </select>
-          <button onClick={() => { setSearch(''); setCategory(''); setPriceRange([0, 1000]); }} className='bg-red-500 px-3 py-1 rounded-md text-white cursor-pointer'>Reset Filters</button>
+          <div className="mb-4 flex flex-col gap-2">
+          <label>Price Range: ₹{priceRange[0]} - ₹{priceRange[1]}</label>
+       
+          <input type="range"
+            min="0"
+            max="500"
+            value={priceRange[1]} 
+            onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])} 
+            className='w-[150px]'
+            />
+        </div>
+          <button onClick={() => { setSearch(''); setCategory(''); setPriceRange([0, 500]); }} className='bg-red-500 px-3 py-1 rounded-md text-white cursor-pointer'>Reset Filters</button>
         </div> : ""
       }
 

@@ -3,7 +3,7 @@ import HeroImg from "../assets/Hero1.png"
 
 const Hero = () => {
   return (
-    <section className="relative bg-green-600 text-white mt-15">
+    <section className="relative bg-green-600 text-white mt-12 md:mt-15">
       <div className="max-w-6xl mx-auto py-16 flex flex-col md:flex-row items-center px-6 md:px-0 gap-7">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Fresh Groceries Delivered to Your Door</h1>
