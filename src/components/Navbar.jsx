@@ -5,6 +5,7 @@ import CartComp from './CartComp'
 import { useSelector } from 'react-redux'
 import { HiMenuAlt1, HiMenuAlt3 } from 'react-icons/hi'
 import ResponsiveMenu from './ResponsiveMenu'
+import Logo from "../assets/Logo.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,9 +23,10 @@ const Navbar = () => {
   isOpen? document.body.style.overflow = "hidden " : document.body.style.overflow = "auto" 
   return (
     <div>
-      <div className='lg:px-[180px] mx-auto flex justify-between items-center px-6 py-3 fixed top-0 z-20 bg-white w-full border border-gray-100 shadow-xl'>
+      <div className='lg:px-[180px] mx-auto flex justify-between items-center px-6 py-3 fixed top-0 z-20 bg-green-100 w-full border border-gray-100 shadow-xl'>
         {/* logo section */}
-        <Link to={'/'}><h1 className='font-bold text-3xl text-green-600'>FreshMart</h1></Link>
+        {/* <Link to={'/'}><h1 className='font-bold text-3xl text-green-600'>Fresh<span className='text-yellow-500'>Mart</span></h1></Link> */}
+        <img src={Logo} alt="" className='md:w-52 w-40'/>
         {/* menu section */}
         <nav className='flex gap-5'>
             <ul className='text-xl font-semibold md:flex items-center gap-7 hidden '>
