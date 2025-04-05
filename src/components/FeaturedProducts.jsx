@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 import { products } from '../Utils/Data'
+import { Link } from 'react-router-dom'
 
 const FeaturedProducts = () => {
   return (
@@ -18,7 +19,7 @@ const FeaturedProducts = () => {
         </div>
         <div className="mt-8 text-center">
           <button className="rounded-full border py-2 px-3 border-gray-500">
-            <a href="/shop">View All Products</a>
+            <Link to="/shop">View All Products</Link>
           </button>
         </div>
       </div>

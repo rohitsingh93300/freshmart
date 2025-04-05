@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className='lg:px-[180px] mx-auto flex justify-between items-center px-6 py-3 fixed top-0 z-20 bg-green-100 w-full border border-gray-100 shadow-xl'>
         {/* logo section */}
         {/* <Link to={'/'}><h1 className='font-bold text-3xl text-green-600'>Fresh<span className='text-yellow-500'>Mart</span></h1></Link> */}
-        <img src={Logo} alt="" className='md:w-52 w-40'/>
+        <Link to={'/'}><img src={Logo} alt="" className='md:w-52 w-40'/></Link>
         {/* menu section */}
         <nav className='flex gap-5'>
             <ul className='text-xl font-semibold md:flex items-center gap-7 hidden '>

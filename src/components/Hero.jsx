@@ -1,21 +1,23 @@
 import React from 'react'
 import HeroImg from "../assets/Hero1.png"
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
     <section className="relative bg-green-600 text-white mt-12 md:mt-15">
       <div className="max-w-6xl mx-auto py-16 flex flex-col md:flex-row items-center px-6 md:px-0 gap-7">
         <div className="md:w-1/2 mb-8 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Fresh Groceries Delivered to Your Door</h1>
+        {/* <h3 className='font-semibold mb-4 text-gray-100 font-mono '>Freshness Delivered, Savings Guaranteed!</h3> */}
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Fresh <span className='text-orange-300'>Groceries</span> Delivered to Your Door</h1>
           <p className="text-lg mb-6">
             Shop from our wide selection of fresh fruits, vegetables, dairy, and more. Get same-day delivery!
           </p>
           <div className="flex flex-wrap gap-4">
-            <button asChild className="bg-white text-green-600 hover:bg-gray-100 rounded-full px-3 py-1">
-              <a href="/products">Shop Now</a>
+            <button className="bg-white text-green-600 hover:bg-gray-100 rounded-full px-3 py-1">
+              <Link to="/shop">Shop Now</Link>
             </button>
             <button asChild variant="outline" className="text-white border-white bg-green-700 hover:bg-green-600 rounded-full px-3 py-2">
-              <a href="/about">Learn More</a>
+              <Link to="/about">Learn More</Link>
             </button>
           </div>
         </div>
