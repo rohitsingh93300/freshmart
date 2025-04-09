@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ProductCard from '../components/ProductCard';
 import { products } from '../Utils/Data';
 import { FaFilter } from 'react-icons/fa6';
+import empty from "../assets/empty.jpg"
 // const products = [
 //     { id: 1, name: "Apple", category: "Fruits", price: 2.5 },
 //     { id: 2, name: "Banana", category: "Fruits", price: 1.2 },
@@ -118,7 +119,9 @@ const Shop = () => {
       }
 
       {/* Product Listing */}
-      <div className="col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:ml-[300px] px-4 md:px-0 mt-6 md:mt-0">
+      {
+        filteredProducts.length > 0 ? (
+          <div className="col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:ml-[300px] px-4 md:px-0 mt-6 md:mt-0">
         {filteredProducts.map((product) => (
           // <div key={product.id} className="p-4 border border-gray-200">
           //   <img src={product.image} alt={product.name} className="w-full h-50 object-cover mb-2 rounded bg-gray-200" />
@@ -132,6 +135,12 @@ const Shop = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+        ):(
+          <div className='lg:ml-[300px] flex items-end justify-center'>
+            <img src={empty} alt="" className='w-[500px]'/>
+          </div>
+        )
+      }
     </div>
   );
 }
